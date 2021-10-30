@@ -3,7 +3,8 @@ const mongoose = require('mongoose');
 const dotenv = require('dotenv').config();
 
 // Routes
-const authRoute = require('./routes/auth');
+// const authRoute = require('./routes/auth');
+const taskRoute = require('./routes/tasks');
 
 // Connect to the database
 mongoose
@@ -23,7 +24,8 @@ const port = process.env.PORT || 3000;
 
 // Middleware
 app.use(express.json());
-app.use('/api/user', authRoute);
+// app.use('/api/user', authRoute);
+app.use('/api', taskRoute);
 
 app.listen(port, () =>
   console.log(`💻 Server is listening on port ${port}...`),
